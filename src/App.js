@@ -1,19 +1,19 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react';
-
+import { data } from './Data/data';
 
 const fullPageOptions = {
   // for mouse/wheel events
   // represents the level of force required to generate a slide change on non-mobile, 10 is default
-  scrollSensitivity: 7,
+  scrollSensitivity: 2,
 
   // for touchStart/touchEnd/mobile scrolling
-  // represents the level of force required to generate a slide change on mobile, 10 is default
-  touchSensitivity: 10,
+  // represents the level of force required to generate a slide change on mobile, 2 is default
+  touchSensitivity: 2,
   scrollSpeed: 300,
   hideScrollBars: true,
-  enableArrowKeys: true
+  enableArrowKeys: true,
 };
 
 const horizontalSliderProps = {
@@ -21,23 +21,45 @@ const horizontalSliderProps = {
   infinite: true, // enable infinite scrolling
 };
 
-const horizontalSlides = [
-  <Slide> Slide 2.1 </Slide>,
-  <Slide> Slide 2.2 </Slide>
-];
+const horizontalSlides = [<Slide> Slide 2.1 </Slide>, <Slide> Slide 2.2 </Slide>];
 horizontalSliderProps.slides = horizontalSlides;
 
-const slides = [
-  <Slide> Slide 1 </Slide>,
-  <HorizontalSlider {...horizontalSliderProps}></HorizontalSlider>,
-  <Slide> Slide 3 </Slide>
-];
+const createMarkup = data => {
+  return { __html: data };
+};
+
+const slides = data.pages.map(item => {
+  if (item.type == 'img') {
+    return (
+      <Slide>
+        {/* <img className='page-img' src={`/img/${item.file}.png`} /> */}
+        <div className='page-img-wrapper'>
+          <div className='page-img' style={{ backgroundImage: `url(/img/${item.file}.png)` }} />
+        </div>
+      </Slide>
+    );
+  } else {
+    return (
+      <Slide>
+        <div className='page'>
+          <div className='page-content'>
+            <h2 className='page-title'>{item.title}</h2>
+            <div className='page-text' dangerouslySetInnerHTML={createMarkup(item.text)} />
+          </div>
+        </div>
+      </Slide>
+    );
+  }
+});
+
+// const slides = [
+//   // <HorizontalSlider {...horizontalSliderProps}></HorizontalSlider>,
+// ];
 fullPageOptions.slides = slides;
 
 function App() {
   return (
-    <div className="App">
-      <header>adkjasdj</header>
+    <div className='App'>
       <Fullpage {...fullPageOptions} />
     </div>
   );

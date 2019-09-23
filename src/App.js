@@ -28,23 +28,37 @@ const createMarkup = data => {
   return { __html: data };
 };
 
+const renderLinks = links => {
+  return (
+    <div className="page-links">
+      {links.map(link => {
+        return (
+          <a className="page-link" href={`${link.url}`} target="_blank">
+            <ion-icon name={`${link.icon}`}></ion-icon>
+          </a>
+        );
+      })}
+    </div>
+  );
+};
+
 const slides = data.pages.map(item => {
   if (item.type == 'img') {
     return (
       <Slide>
-        {/* <img className='page-img' src={`/img/${item.file}.png`} /> */}
-        <div className='page-img-wrapper'>
-          <div className='page-img' style={{ backgroundImage: `url(/img/${item.file}.png)` }} />
+        <div className="page-img-wrapper">
+          <div className="page-img" style={{ backgroundImage: `url(/img/${item.file}.png)` }} />
         </div>
       </Slide>
     );
   } else {
     return (
       <Slide>
-        <div className='page'>
-          <div className='page-content'>
-            <h2 className='page-title'>{item.title}</h2>
-            <div className='page-text' dangerouslySetInnerHTML={createMarkup(item.text)} />
+        <div className="page">
+          <div className="page-content">
+            <h2 className="page-title">{item.title}</h2>
+            <div className="page-text" dangerouslySetInnerHTML={createMarkup(item.text)} />
+            {item.links && renderLinks(item.links)}
           </div>
         </div>
       </Slide>
@@ -59,7 +73,7 @@ fullPageOptions.slides = slides;
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Fullpage {...fullPageOptions} />
     </div>
   );

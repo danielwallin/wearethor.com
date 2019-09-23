@@ -96,6 +96,20 @@ export const data = {
     {
       title: 'Contact',
       text: 'info@wearethor.com <br /> +46 738 41 14 93 <br /><br /> wearethor.com',
+      links: [
+        {
+          icon: 'logo-facebook',
+          url: 'http://facebook.com',
+        },
+        {
+          icon: 'logo-instagram',
+          url: 'http://instagram.com',
+        },
+        {
+          icon: 'logo-twitter',
+          url: 'http://twitter.com',
+        },
+      ],
     },
   ],
 };

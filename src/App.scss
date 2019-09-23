@@ -34,6 +34,22 @@ html {
     height: 100%;
     margin: 0 auto;
 
+    &-links {
+      display: flex; 
+      justify-content: center; 
+      flex-direction: row;
+      margin-top: 2rem;
+      .page-link {
+        font-size: 2.5rem;
+        color: inherit;
+        color: #545454;
+      }
+      .page-link + .page-link {
+        margin-left: 1rem; 
+      }
+    }
+
+
     &-img-wrapper {
       display: flex;
       justify-content: center;

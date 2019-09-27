@@ -1,5 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro&display=swap');
 @import 'Styles/mixins.scss';
+
+@font-face {
+  font-family: 'Cooper';
+  src: url('/fonts/cooperlight.otf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'CooperMedium';
+  src: url('/fonts/coopermedium.otf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'League';
+  src: url('/fonts/leaguebold.otf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Athin';
+  src: url('/fonts/athin.otf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Aheavy';
+  src: url('/fonts/aheavy.otf'); /* IE9 Compat Modes */
+}
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -9,6 +33,7 @@
 
 body {
   margin: 0;
+  background: #222;
 }
 
 html {
@@ -18,49 +43,208 @@ html {
     }
   }
 
+  img {
+    display: block;
+    width: 100%;
+  }
+
   header {
     position: fixed;
   }
-  
+
+  .hide {
+    display: none;
+  }
+
   .App {
     text-align: center;
     font-family: sans-serif;
   }
 
-  .page {
+  .navigation {
+    position: fixed;
+    top: 0
+  }
+
+  .section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     margin: 0 auto;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+
+    &.layout {
+      .work-img-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      &-right {
+        .work-img-wrapper {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    & + .section {
+      margin-top: 4rem;
+    }
+
+    &.work.mix {
+      .work-img-subtitle {
+        margin-top: 0;
+      }
+    }
+
+    &.work > *, &.other > * {
+      margin-top: 10rem;
+      @include md {
+        margin-top: 22rem;
+      }
+    }
+
+    &-subtext {
+      position: absolute;
+      color: white;
+      bottom: 0;
+      right: 2rem;
+      text-align: left;
+      font-family: 'League', sans-serif;
+      text-transform: uppercase;
+      font-size: 2rem;
+      line-height: 1.5em;
+      @include md {
+        right: 10vw;
+      }
+    }
+
+    &-headline {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 5rem;
+      color: #fff;
+      font-family: 'Athin', sans-serif;
+      top: 20vh;
+      h1 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        img {
+          width: 45rem;
+        }
+      }
+      @include md {
+        font-size: 8rem;
+      }
+      span {
+        text-transform: uppercase;
+        margin-left: 5rem;
+        font-family: 'Aheavy', sans-serif;
+      }
+    }
+  }
+
+  .work, .other {
+
+    &-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+
+      .work-link {
+        width: 3rem;
+        & + * {
+          margin-left: 2rem;
+        }
+      }
+    }
+
+    &-img-grid {
+      padding: 3rem;
+      padding-bottom: 0;
+      margin: -1.5rem;
+      // grid-template-columns: repeat(2, auto);
+      display: flex;
+      flex-wrap: wrap;
+      // grid-gap: 3rem;
+      @include md {
+        //grid-template-columns: repeat(3, auto); /* totally works! */
+      }
+      > * {
+        position: relative;
+        flex-basis: calc(50% - 3rem);
+        margin: 1.5rem;
+        @include md {
+          flex-basis: calc(33.333% - 3rem);
+        }
+        // height: 180px;
+        // width: 100%;
+        // @include md {
+        //   height: 300px;
+        // }
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        &:after {
+          content: '';
+          display: block;
+          padding-top: 100%;
+        }
+      }
+    }
 
     &-img-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // height: 100vh;
+      width: 100%;
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    &-img-subtitle {
+      display: block;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: 'League', sans-serif;
+      font-size: 1.6rem;
+      padding: 2.2rem 0;
+      color: #a6a6a6;
+    }
+
+    &-img-full {
+      margin-top: 0;
     }
 
     &-img {
-      background-size: contain;
+      background-size: cover;
       background-position: center center;
-      width: 80vw;
-      height: 80vh;
+      width: 100%;
+      height: 100%;
       background-repeat: no-repeat;
       margin: 0 auto;
     }
 
     &-title {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League', sans-serif;
       font-weight: 700;
       font-size: 5rem;
       margin-bottom: 1em;
+      line-height: 1em;
       margin-top: 0;
       text-transform: uppercase;
-      color: #545454;
-      max-width: 85vw;
-      margin: 1em auto;
+      color: #404040;
+      max-width: 75vw;
+      margin: 0 auto;
       @include md {
         max-width: 100vw;
         font-size: 6rem;
@@ -68,13 +252,14 @@ html {
     }
 
     &-text {
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Cooper', sans-serif;
       margin: 0 auto;
       line-height: 1.5em;
       color: #888888;
       font-weight: 400;
-      max-width: 85vw;
+      max-width: 75vw;
       font-size: 2.4rem;
+      margin-top: 6rem;
       @include md {
         font-size: 2rem;
         max-width: 50vw;

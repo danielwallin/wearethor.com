@@ -1,68 +1,144 @@
 import React from 'react';
 import './App.scss';
-import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { data } from './Data/data';
 
-const fullPageOptions = {
-  // for mouse/wheel events
-  // represents the level of force required to generate a slide change on non-mobile, 10 is default
-  scrollSensitivity: 2,
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      amount: data.work.filter(i => i.type == 'work').length,
+    };
+  }
 
-  // for touchStart/touchEnd/mobile scrolling
-  // represents the level of force required to generate a slide change on mobile, 2 is default
-  touchSensitivity: 2,
-  scrollSpeed: 300,
-  hideScrollBars: true,
-  enableArrowKeys: true,
-};
-
-const horizontalSliderProps = {
-  name: 'horizontalSlider1', // name is required
-  infinite: true, // enable infinite scrolling
-};
-
-const horizontalSlides = [<Slide> Slide 2.1 </Slide>, <Slide> Slide 2.2 </Slide>];
-horizontalSliderProps.slides = horizontalSlides;
-
-const createMarkup = data => {
-  return { __html: data };
-};
-
-const slides = data.pages.map(item => {
-  if (item.type == 'img') {
-    return (
-      <Slide>
-        {/* <img className='page-img' src={`/img/${item.file}.png`} /> */}
-        <div className='page-img-wrapper'>
-          <div className='page-img' style={{ backgroundImage: `url(/img/${item.file}.png)` }} />
-        </div>
-      </Slide>
-    );
-  } else {
-    return (
-      <Slide>
-        <div className='page'>
-          <div className='page-content'>
-            <h2 className='page-title'>{item.title}</h2>
-            <div className='page-text' dangerouslySetInnerHTML={createMarkup(item.text)} />
-          </div>
-        </div>
-      </Slide>
+  componentDidMount() {
+    const items = document.querySelectorAll('section.work');
+    window.addEventListener(
+      'scroll',
+      () => {
+        items.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < 0) {
+            this.setState({ index: Number(el.getAttribute('id')) });
+            console.log('setting state index to ', el.getAttribute('id'));
+          }
+        });
+      },
+      true,
     );
   }
-});
 
-// const slides = [
-//   // <HorizontalSlider {...horizontalSliderProps}></HorizontalSlider>,
-// ];
-fullPageOptions.slides = slides;
+  createMarkup(data) {
+    return { __html: data };
+  }
 
-function App() {
-  return (
-    <div className='App'>
-      <Fullpage {...fullPageOptions} />
-    </div>
-  );
+  renderSubtitle(subtitle) {
+    return <div className='work-img-subtitle'>{subtitle}</div>;
+  }
+
+  getSlides() {
+    let id = 0;
+    return data.work.map(item => {
+      console.log(item);
+      id = item.type == 'work' ? (id += 1) : null;
+      return (
+        <section className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} id={id} ref={item.type == 'work' && `work-${id}`}>
+          {item.type == 'img' ? (
+            <div className='work-img-wrapper work-img-full'>
+              {item.headline ? (
+                <React.Fragment>
+                  <div className='section-headline'>
+                    <h1>
+                      we are{' '}
+                      <span>
+                        <span className='hide'>Thor</span>
+                        <img src='img/thor.png' />
+                      </span>
+                    </h1>
+                  </div>
+                  <p className='section-subtext'>
+                    A COLLECTION <br />
+                    OF MURALS AND <br />
+                    ART PIECES BY <br />
+                    MR AND MRS THOR
+                  </p>
+                  <div className='work-img' style={{ backgroundImage: `url(/img/${item.file})` }} />
+                </React.Fragment>
+              ) : (
+                <img src={`/img/${item.file}`} />
+              )}
+            </div>
+          ) : (
+            <React.Fragment>
+              {item.type !== 'grid' && (
+                <div className='work-wrapper'>
+                  <div className='work-content'>
+                    <h2 className='work-title' dangerouslySetInnerHTML={this.createMarkup(item.title)}></h2>
+                    <div className='work-text' dangerouslySetInnerHTML={this.createMarkup(item.text)} />
+                    {item.links && (
+                      <div className='work-links'>
+                        {item.links.map(link => {
+                          return (
+                            <div className='work-link'>
+                              <a href={link.url} target='_blank'>
+                                {link.icon && <img src={link.icon} />}
+                              </a>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              {item.grid && (
+                <React.Fragment>
+                  <div className='work-img-grid'>
+                    {item.grid.map(path => {
+                      return <div style={{ backgroundImage: `url(/img/${path})` }} />;
+                    })}
+                  </div>
+                  {item.subtitle && this.renderSubtitle(item.subtitle)}
+                </React.Fragment>
+              )}
+              {!item.grid && (
+                <div className='work-img-wrapper'>
+                  {item.file && <LazyLoadImage offset={300} style={{ width: `${item.imgsize}` }} src={`/img/${item.file}`} alt={item.title && item.title.replace(/"/g, '')} />}
+                  {item.subtitle && this.renderSubtitle(item.subtitle)}
+                </div>
+              )}
+            </React.Fragment>
+          )}
+        </section>
+      );
+    });
+  }
+
+  nextWork() {
+    this.setState({ index: this.state.amount >= this.state.index + 1 ? this.state.index + 1 : this.state.index }, () => {
+      console.log(this.state);
+      this.refs[`work-${this.state.index}`].scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  prevWork() {
+    this.setState({ index: this.state.index > 1 ? this.state.index - 1 : this.state.index }, () => {
+      console.log(this.state);
+      this.refs[`work-${this.state.index}`].scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <div className='navigation'>
+          {this.state.amount}
+          <button onClick={this.nextWork.bind(this)}>Next</button>
+          <button onClick={this.prevWork.bind(this)}>Prev</button>
+        </div>
+        {this.getSlides()}
+      </div>
+    );
+  }
 }
-
-export default App;

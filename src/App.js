@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazyload';
+import ProgressiveImage from "react-progressive-image-loading";
 import { data } from './Data/data';
 
 export default class App extends React.Component {
@@ -13,20 +15,20 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    const items = document.querySelectorAll('section.work');
-    window.addEventListener(
-      'scroll',
-      () => {
-        items.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < 0) {
-            this.setState({ index: Number(el.getAttribute('id')) });
-            console.log('setting state index to ', el.getAttribute('id'));
-          }
-        });
-      },
-      true,
-    );
+    // const items = document.querySelectorAll('section.work');
+    // window.addEventListener(
+    //   'scroll',
+    //   () => {
+    //     items.forEach(el => {
+    //       const rect = el.getBoundingClientRect();
+    //       if (rect.top < 0) {
+    //         this.setState({ index: Number(el.getAttribute('id')) });
+    //         console.log('setting state index to ', el.getAttribute('id'));
+    //       }
+    //     });
+    //   },
+    //   true,
+    // );
   }
 
   createMarkup(data) {
@@ -82,7 +84,7 @@ export default class App extends React.Component {
                           return (
                             <div className='work-link'>
                               <a href={link.url} target='_blank'>
-                                {link.icon && <img src={link.icon} />}
+                                {link.icon && <LazyLoad offset={300}><img src={link.icon} /></LazyLoad>}
                               </a>
                             </div>
                           );
@@ -94,17 +96,39 @@ export default class App extends React.Component {
               )}
               {item.grid && (
                 <React.Fragment>
+                  <LazyLoad offset={300}>
                   <div className='work-img-grid'>
                     {item.grid.map(path => {
                       return <div style={{ backgroundImage: `url(/img/${path})` }} />;
                     })}
                   </div>
                   {item.subtitle && this.renderSubtitle(item.subtitle)}
+                  </LazyLoad>
                 </React.Fragment>
               )}
               {!item.grid && (
                 <div className='work-img-wrapper'>
-                  {item.file && <LazyLoadImage offset={300} style={{ width: `${item.imgsize}` }} src={`/img/${item.file}`} alt={item.title && item.title.replace(/"/g, '')} />}
+                  {/* <ProgressiveImage
+                      preview="/images/tiny-preview.png"
+                      src="/images/preview.png"
+                      render={(src, style) => <img src={src} style={style} />}
+                  /> */}
+                  {item.file && 
+                    <LazyLoad>
+                      <ProgressiveImage
+                      preview={`/img/${item.filepreview}`}
+                      src={`/img/${item.file}`}
+                      transitionTime={300}
+                      transitionFunction="ease"                    
+                      render={(src, style) => { const s = {...style, width: `${item.imgsize}`}; return <img src={src} style={s} />}} />
+                    </LazyLoad>
+                    /* // style={{ width: `${item.imgsize}` }}
+                    // <ProgressiveImage  
+                    //   preview={`/img/${item.filepreview}`}
+                    //   src={`/img/${item.file}`}                       
+                    //   render={(src, style) => {
+                    //     return <img src={src} alt={item.title && item.title.replace(/"/g, '')} style={style} /> */
+                  }
                   {item.subtitle && this.renderSubtitle(item.subtitle)}
                 </div>
               )}

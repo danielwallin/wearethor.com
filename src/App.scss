@@ -95,6 +95,7 @@ html {
     &.work.mix {
       .work-img-grid {
         padding-top: 0;
+        top: -1.5rem;
       }
       .work-img-subtitle {
         margin-top: 0;
@@ -171,8 +172,7 @@ html {
     &-img-grid {
       padding: 3rem;
       padding-bottom: 0;
-      position: relative;
-      top: -1.5rem;
+      position: relative;      
       margin: -1.5rem;
       // grid-template-columns: repeat(2, auto);
       display: flex;

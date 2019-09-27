@@ -93,6 +93,9 @@ html {
     }
 
     &.work.mix {
+      .work-img-grid {
+        padding-top: 0;
+      }
       .work-img-subtitle {
         margin-top: 0;
       }
@@ -168,6 +171,8 @@ html {
     &-img-grid {
       padding: 3rem;
       padding-bottom: 0;
+      position: relative;
+      top: -1.5rem;
       margin: -1.5rem;
       // grid-template-columns: repeat(2, auto);
       display: flex;
@@ -255,7 +260,7 @@ html {
       font-family: 'Cooper', sans-serif;
       margin: 0 auto;
       line-height: 1.5em;
-      color: #888888;
+      color: #646464;
       font-weight: 400;
       max-width: 75vw;
       font-size: 2.4rem;

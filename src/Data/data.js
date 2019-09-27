@@ -8,14 +8,14 @@ export const data = {
     {
       title: 'This is us',
       text:
-        'It all started 2017 when Caroline fell in love with Jens and decided to go live with him in an art collective where he lived at in the high-jungles of Peru. Pretty quickly we happily got married, and we discovered that we could make beautiful art <br />TOGETHER.<br /> After living in the art collective for some time we decided to go on a mythic adventure just the two of us. This story starts in Peru with a mural we painted together for fun in a hostel. It made way for many more murals to come during our travels through Peru, Ecuador and Colombia and finally Sweden.  <br /><br />Love/ Mr and Mrs THOR',
+        'Once upon a time we lived in an art collective in the high jungles of Peru. We lived a spectacular life, got married by the most mysterious shaman and traveled many diffrent dimensions. This book starts when we decided to go on a mythic adventure just the two us and painted our first mural in a hostel in small-town Tarapoto, Peru.  <br /><br />Love/ Mr and Mrs THOR',
       file: '3.jpg',
     },
     {
       title: '"Joyce"',
       type: 'work',
       text:
-        'Joyce is a happy native Shipibo girl from the jungle of Peru, she is immersed in the old ancient icaro patterns that are sung by the initiated during ayahuasca ceremonies. We felt inspired by the natives of Peru and their traditions from living there amongst them for years ourselves. The icaros are the healing songs of the ayahuasceros, they use them to direct the energies during ayahuasca ceremony',
+        'Living in Peru we were very inspired by the traditions of the natives. Joyce is a happy native Shipibo girl from the jungle of Peru, she is immersed in the old ancient icaros patterns that are sung by the initiated during ayahuasca ceremonies.',
       file: '5.jpg',
       subtitle: 'Mancora, Peru - January 2019',
     },
@@ -23,7 +23,7 @@ export const data = {
       title: '"Rosa & Charlie"',
       type: 'work',
       text:
-        'Meet the sea turtles Rosa and Charlie! They swim right outside the hotel in the pacific ocean. The turtle is an ancient animal and it’s totem contains a lot of wisdom, such as; persistence, endurance and longevity. Just keep moving towards your goals no matter how slow or difficult the process may get. The names for the turtles is also the names of the staff working at the hotel we were painting.',
+        'Meet the sea turtles Rosa and Charlie, named after the staff at the hotel we were painting. They swim right outside this bar lounge in the Pacific Ocean. The turtle symbolizes wisdom, persistence and endurance. A reminder to just keep moving towards your goals no matter how slow or difficult the process may get.',
       file: '7.png',
       subtitle: 'Mancora, Peru - January 2019',
     },
@@ -33,14 +33,14 @@ export const data = {
       file: '9.jpg',
       type: 'work',
       text:
-        'Imagine this... The cheeky parrot just told the most hilarious joke to the man and then turns around proudly to us as to say -"How funny was that?" We used the shipibo pattern again, this time with sunset colours and golden yellow over the mans face. The flowers are Lily of the Incas. We simply felt inspired to do a "laugh out loud" kind of painting and put together this. The same day we decided to paint the blue macaw was the same day the news later that day announced it was extinct. Conincident?',
+        'So imagine this... <br /><br /> This cheeky maccaw just told the most hilarious joke to the man and then turns around proudly to us as to say <br /> -"How funny was that?"',
       subtitle: 'Mancora, Peru - January 2019',
     },
     {
       title: '"MOMPICHE SPIRIT"',
       type: 'work',
       text:
-        'With the jaguar, toucan, roses and patterns we wanted to capture the Ecuadorian spirit here in Mompiche. The local toucan symbolizes showmanship, self esteem, and revealing the true inner self. With his colorful appearance and large bill he show us the desire to be seen and heard. The Jaguar symbolizes strength, confidence, focus, and is sleek and astoundingly powerful. The rose is the national flower of Ecuador, and the red rose symbolizes love and desire. In the background we painted a native pattern with the colors of their flag. To give it a true totem feeling we added two colorful feathers.',
+        'With the jaguar, toucan, roses and patterns we wanted to capture the Ecuadorian spirit in Mompiche through the local flora and fauna. Cobinened they symbolize showmanship, , passion, love, confidence and focus.',
       file: '11.jpg',
       subtitle: 'MOMPICHE, Equador - February 2019',
     },
@@ -48,7 +48,7 @@ export const data = {
       title: '"WAYUU WOMAN"',
       type: 'work',
       text:
-        'This is a woman with traditional features from one of the few intact tribes left in Colombia, the Wayuu. The Wayuu´s are a matriarchal tribe where all shamans and politicians are women. They are deeply spiritual and connected to nature, worshiping the rain and the Oneness of life. We were very inspired by their face paintings and the artwork they do and wanted to give tribute to that buy painting patterns and fine details in the straw hat and earings.',
+        'This is a woman with traditional features from one of the few intact tribes left in Colombia, the Wayuu. They are deeply spiritual and connected to nature. We wanted to give tribute to their traditions by painting traditional patterns and fine details in the straw hat and earings.',
       file: '13.jpg',
       layout: 'left',
       imgsize: '80vw',
@@ -58,7 +58,7 @@ export const data = {
       title: '"CARTALEYNA"',
       type: 'work',
       text:
-        'This is a local Cartagena city girl named Leyna. We wanted to capture a modern image of Cartagena and picked our favourite waitress at our favourite restaurant in Cartagena to model for us. Cartagena is filled with colourful birds and as we would have morning coffee on the rooftop at our hotel we got inspired by all the birds sitting in the mango tree above us. We added a lush Caribbean background with banana leaves and two lovebirds sitting on her finger. Across the leaves we added a layer of a typical precolombian pattern to connect the native heritage.',
+        'We wanted to capture a modern image of Cartagena and picked our favourite waitress, Leyna, at our favourite restaurant in Cartagena to model for us. All the colorfull birds in Cartagena inspired us to paint these two lovebirds. The pattern is a typical pre-Colombian.',
       file: '15.jpg',
       subtitle: 'Cartagena, Colombia - April 2019',
     },
@@ -66,7 +66,7 @@ export const data = {
       title: '"TOVNER"',
       type: 'work',
       text:
-        'Being back in Sweden we strongly felt a connection to Nordic mythology. Tovner is one of the lynxes that drags goddess Frejas carriage. The lynx is a power animal symbolizing clarity, wisdom and magic. The sunset highlights the forest full of heather flower. The forest is a primal symbol of life and wealth, a place that contains many mysteries and lessons about ourselves. Then we merged in the Yggdrasil pattern, the Nordic tree of life. Yggdrasil is the framework of the Universe, it holds together all dimensions and worlds and represents lifes cycles of birth, growth, death and rebirth.',
+        'Being back in Sweden we strongly felt a connection to Nordic mythology and choose to paint Tovner who is one of the lynxes that drags goddess Frejas carriage. The lynx symbolizes clarity, wisdom and magic. The sunset in the forest highlights the heather flowers, making it a place with many mysteries. The white pattern is Yggdrasil, the Nordic tree of life.',
       file: '17.jpg',
       subtitle: 'Stockholm, Sweden - July 2019',
     },
@@ -74,7 +74,7 @@ export const data = {
       title: '"FREJAS FALKHAMN"',
       type: 'work',
       text:
-        '"Freja`s falcon harbour" also comes from the Nordic mythology, it is a spiritual feather coat that magically transforms the one who wears it into a falcon. The falcon symbolizes wisdom, vision and protection. We choose to add roses to this painting because of their powerful meaning. The peach-colored roses stand for honesty and gratitude. The pattern in the foreground is a pole vault, it is used as protection against various kinds of obstacles that can cause a person to loose their path.',
+        '"Frejas falcon harbour" also originates from Nordic mythology, it´s a spiritual feather coat that magically transforms the one who wears it into a falcon. A powerful being of wisdom, vision and protection. The peach-colored roses are a symbol of honesty and gratitude. The white pole vault is a protection against obstacles that can cause a person to loose their path.',
       file: '19.jpg',
       subtitle: 'Stockholm, Sweden - August 2019',
     },

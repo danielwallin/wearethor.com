@@ -1,0 +1,39 @@
+.progressive {
+  &-wrapper {
+    position: relative; 
+  }
+  &-preview {    
+    z-index: 2;
+    img {
+      // filter: blur(50px);
+      transition: 1000ms ease all;
+    }
+    &.loaded {
+      position: absolute; 
+      top: 0;
+      width: 100%;
+      height: 100%; 
+      left: 0;       
+      img {
+        opacity: 0;
+      }
+    }
+    &.loading {
+      position: relative;
+      img {         
+        opacity: 1;
+      }
+    }
+  }
+  &-preview.loaded + &-src {
+    display: block;
+  }
+  &-src {
+    z-index: 1;
+    display: none;
+    img {
+      transition: 1000ms ease opacity;
+      opacity: 0
+    }
+  }
+}

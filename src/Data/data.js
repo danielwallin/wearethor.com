@@ -58,7 +58,8 @@ export const data = {
       filepreview: '13_prev.jpg',
       layout: 'left',
       imgsize: '80vw',
-      subtitle: 'Cartagena, Colombia - April 2019',
+      imgclass: 'mtb-3',
+      imgtext: '<div class="work-img-subtitle">Cartagena, Colombia - April 2019</div>'
     },
     {
       title: '"CARTALEYNA"',
@@ -112,12 +113,12 @@ export const data = {
     },
     {
       type: 'work',
-      layout: 'right',
-      text: 'At home outside the window we saw these guys and made our first oil painting together. <br /><br /> Oil on canvas 20 x 30 cm',
+      layout: 'right no-margin',
+      imgtext: '<div class="work-img-subtitle">STOCKHOLM, SWEDEN MAY 2019</div>At home outside the window we saw these guys and made our first oil painting together. <br /><br /> Oil on canvas 20 x 30 cm',
+      imgclass: 'm-6',
       file: 'wedo.jpg',
       filepreview: 'wedo_prev.jpg',
       imgsize: '60vw',
-      subtitle: 'STOCKHOLM, SWEDEN MAY 2019',
     },
     {
       title: 'Contact',

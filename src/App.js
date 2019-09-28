@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LazyLoad from 'react-lazyload';
-import ProgressiveImage from "react-progressive-image-loading";
+import ProgressiveImage from './Components/Progressive';
 import { data } from './Data/data';
 
 export default class App extends React.Component {
@@ -43,7 +43,7 @@ export default class App extends React.Component {
     let id = 0;
     return data.work.map(item => {
       console.log(item);
-      id = item.type == 'work' ? (id += 1) : null;
+      id = item.type && item.type.indexOf('work') >= 0 ? (id += 1) : null;
       return (
         <section className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} id={id} ref={item.type == 'work' && `work-${id}`}>
           {item.type == 'img' ? (
@@ -73,7 +73,7 @@ export default class App extends React.Component {
             </div>
           ) : (
             <React.Fragment>
-              {item.type !== 'grid' && (
+              {item.type !== 'grid' && item.title && (
                 <div className='work-wrapper'>
                   <div className='work-content'>
                     <h2 className='work-title' dangerouslySetInnerHTML={this.createMarkup(item.title)}></h2>
@@ -113,14 +113,24 @@ export default class App extends React.Component {
                       src="/images/preview.png"
                       render={(src, style) => <img src={src} style={style} />}
                   /> */}
+                  {item.imgtext && <div className='work-text mt-0' dangerouslySetInnerHTML={this.createMarkup(item.imgtext)} />}
                   {item.file && 
-                    <LazyLoad>
-                      <ProgressiveImage
-                      preview={`/img/${item.filepreview}`}
-                      src={`/img/${item.file}`}
-                      transitionTime={300}
-                      transitionFunction="ease"                    
-                      render={(src, style) => { const s = {...style, width: `${item.imgsize}`}; return <img src={src} style={s} />}} />
+                    <LazyLoad offset={50}>
+                      <ProgressiveImage 
+                        className={item.imgclass}
+                        style={{ width: `${item.imgsize}`}}
+                        src={`/img/${item.file}`}
+                        preview={`/img/${item.filepreview}`}
+                      />
+                      {/* <img className={item.imgclass} style={{ width: `${item.imgsize}`, filter: 'blur(50px)', transition: '.3s ease', opacity: 1 }} src={`/img/${item.filepreview}`} />  */}
+                      
+                      {/* <ProgressiveImage
+                        className={item.imgclass}
+                        overlaySrc={`/img/${item.filepreview}`}
+                        style={{ width: `${item.imgsize}` }}
+                        src={`/img/${item.file}`} /> */}
+                      
+                      {/* // render={(src, style) => { const s = {...style, width: `${item.imgsize}`}; return <img className={item.imgclass} src={src} style={s} />}} /> */}
                     </LazyLoad>
                     /* // style={{ width: `${item.imgsize}` }}
                     // <ProgressiveImage  

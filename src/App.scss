@@ -52,6 +52,24 @@ html {
     position: fixed;
   }
 
+  .mt-0 {
+    margin-top: 0!important;
+  }
+
+  .m-6 {
+    margin: 6rem!important;
+    @include sm {
+      margin-top: 0!important; 
+    }
+    @include md {
+      margin-top: 6rem!important; 
+    }   
+  }
+
+  .mtb-3 {
+    margin: 3rem 0!important;
+  }
+
   .hide {
     display: none;
   }
@@ -80,13 +98,29 @@ html {
       .work-img-wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-flow: wrap;
+        @include md {
+          flex-flow: row;
+        }
       }
-      &-right {
+      &-left {
         .work-img-wrapper {
           flex-direction: row-reverse;
         }
       }
+      &-right {
+        .work-text {
+          padding: 6rem;
+        }
+
+        .work-img-wrapper {
+          // flex-direction: row-reverse;
+        }
+      }
     }
+
+    
 
     & + .section {
       margin-top: 4rem;
@@ -107,6 +141,10 @@ html {
       @include md {
         margin-top: 22rem;
       }
+    }
+
+    &.no-margin > * {
+      margin-top: 0;
     }
 
     &-subtext {

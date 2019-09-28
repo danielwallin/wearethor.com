@@ -52,20 +52,20 @@ export default class App extends React.Component {
                 <React.Fragment>
                   <div className='section-headline'>
                     <h1>
-                      we are{' '}
-                      <span>
+                      we are <span>Thor</span>
+                      {/* <span>
                         <span className='hide'>Thor</span>
                         <img src='img/thor.png' />
-                      </span>
+                      </span> */}
                     </h1>
+                    <p className='section-subtext'>
+                      A COLLECTION <br />
+                      OF MURALS AND <br />
+                      ART PIECES BY <br />
+                      MR AND MRS THOR
+                    </p>
                   </div>
-                  <p className='section-subtext'>
-                    A COLLECTION <br />
-                    OF MURALS AND <br />
-                    ART PIECES BY <br />
-                    MR AND MRS THOR
-                  </p>
-                  <div className='work-img' style={{ backgroundImage: `url(/img/${item.file})` }} />
+                  <div className='section-headline-img' style={{ backgroundImage: `url(/img/${item.file})` }} />
                 </React.Fragment>
               ) : (
                 <img src={`/img/${item.file}`} />

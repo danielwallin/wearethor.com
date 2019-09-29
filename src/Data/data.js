@@ -52,8 +52,8 @@ export const data = {
       type: 'work',
       text:
         'With the jaguar, toucan, roses and patterns we wanted to capture the Ecuadorian spirit in Mompiche through the local flora and fauna. Cobinened they symbolize showmanship, , passion, love, confidence and focus.',
-      img: '17.jpg',
-      imgpreview: '17_prev.jpg',
+      img: '4.png',
+      imgpreview: '4_prev.png',
       imgsize: '95vw',
       imgalt: 'Mompiche spirit',
       subtitle: 'MOMPICHE, Equador - February 2019',

@@ -11,7 +11,7 @@
   &-preview {    
     z-index: 2;
     img {
-      filter: blur(40px);
+      // filter: blur(40px);
       transition: opacity 400ms ease 0ms;
     }
     &.loaded {

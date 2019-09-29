@@ -52,8 +52,9 @@ export const data = {
       type: 'work',
       text:
         'With the jaguar, toucan, roses and patterns we wanted to capture the Ecuadorian spirit in Mompiche through the local flora and fauna. Cobinened they symbolize showmanship, , passion, love, confidence and focus.',
-      img: '11.jpg',
-      imgpreview: '11_prev.jpg',
+      img: '17.jpg',
+      imgpreview: '17_prev.jpg',
+      imgsize: '95vw',
       imgalt: 'Mompiche spirit',
       subtitle: 'MOMPICHE, Equador - February 2019',
     },
@@ -68,7 +69,7 @@ export const data = {
       imgalt: 'Mompiche spirit',
       imgsize: '80vw',
       imgclass: 'mtb-3',
-      imgtext: '<div class="work-img-subtitle">Cartagena, Colombia - April 2019</div>'
+      imgtext: '<div class="work-img-subtitle inset">Cartagena, Colombia April 2019</div>'
     },
     {
       title: '"CARTALEYNA"',

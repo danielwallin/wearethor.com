@@ -1,5 +1,4 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LazyLoad from 'react-lazyload';
 import ProgressiveImage from './Components/Progressive';
 import { data } from './Data/data';

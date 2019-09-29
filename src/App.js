@@ -4,6 +4,7 @@ import LazyLoad from 'react-lazyload';
 import ProgressiveImage from './Components/Progressive';
 import { data } from './Data/data';
 import VisibilitySensor from 'react-visibility-sensor';
+import { Waypoint } from 'react-waypoint';
 import './App.scss';
 
 export default class App extends React.Component {
@@ -45,8 +46,8 @@ export default class App extends React.Component {
     return <div className='work-img-subtitle'>{subtitle}</div>;
   }
 
-  onChange (obj, isVisible) {
-    // console.log(obj)
+  onEnter (obj, isVisible) {
+    console.log(obj, isVisible)
     const { workindex, isworkitem, hideNav } = obj
     if (isworkitem && isVisible) {
       this.setState({ index: workindex, hideNav: this.state.hideNav }, ()=> { console.log(this.state) })
@@ -69,11 +70,11 @@ export default class App extends React.Component {
       }
 
       return (
-        <VisibilitySensor onChange={this.onChange.bind(this, { workindex: workindex, isworkitem: isworkitem, hideNav: item.hideNav })}>
+        <Waypoint ref={isworkitem && `work-${workindex}`} onEnter={this.onEnter.bind(this, { workindex: workindex, isworkitem: isworkitem, hideNav: item.hideNav })}>
           <section 
             className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} 
-            id={id} 
-            ref={isworkitem && `work-${workindex}`}>
+            id={id}>
+            {/* // ref={isworkitem && `work-${workindex}`}> */}
             {item.type == 'img' ? (
               <div className='work-img-wrapper work-img-full'>
                 {item.headline ? (
@@ -154,25 +155,25 @@ export default class App extends React.Component {
               </React.Fragment>
             )}
           </section>
-        </VisibilitySensor>
+        </Waypoint>
       );
     });
   }
 
   nextWork() {
     this.setState({ index: this.state.amount >= this.state.index + 1 ? this.state.index + 1 : this.state.index }, () => {
-      console.log('next ' , this.refs[`work-${this.state.index}`]);
-      if (this.refs[`work-${this.state.index}`]) {
-        this.refs[`work-${this.state.index}`].scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
+      const el = document.getElementById(this.state.index)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
       }
     });
   }
 
   prevWork() {
     this.setState({ index: this.state.index > 1 ? this.state.index - 1 : this.state.index }, () => {
-      console.log('prev ' , this.state);
-      if (this.refs[`work-${this.state.index}`]) {
-        this.refs[`work-${this.state.index}`].scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
+      const el = document.getElementById(this.state.index)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
       }
     });
   }

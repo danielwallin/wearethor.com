@@ -1,17 +1,20 @@
+canvas.react-blur-canvas {
+  position: absolute;
+  // // height: 100%!important;
+  // left: 0;
+  // z-index: 10;
+  // right: 0;
+}
+
 .progressive {
   &-wrapper {
     position: relative; 
   }
 
-  .react-blur {
-    height: 100%;
-  }
-
-
   &-preview {    
     z-index: 2;
     img {
-      // filter: blur(40px);
+      filter: blur(13px);
       transition: opacity 400ms ease 0ms;
     }
     &.loaded {
@@ -34,8 +37,11 @@
       }
     }
   }
+  &-preview.isloading + &-src {
+    display: none;
+  }
   &-preview.loaded + &-src {
-    // display: block;
+    display: block;
   }
   &-src {
     z-index: 1;

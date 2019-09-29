@@ -2,7 +2,6 @@ import React from 'react';
 import LazyLoad from 'react-lazyload';
 import ProgressiveImage from './Components/Progressive';
 import { data } from './Data/data';
-import VisibilitySensor from 'react-visibility-sensor';
 import { Waypoint } from 'react-waypoint';
 import './App.scss';
 

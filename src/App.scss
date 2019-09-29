@@ -48,6 +48,11 @@ html {
     width: 100%;
   }
 
+  a {
+    text-decoration: none; 
+    color: #646464;
+  }
+
   header {
     position: fixed;
   }
@@ -81,7 +86,62 @@ html {
 
   .navigation {
     position: fixed;
-    top: 0
+    top: 0;
+    z-index: 100;
+    width: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    right: 0;
+    opacity: 1;
+    transition: .3s ease;
+    &.hide {
+      opacity: 0; 
+    }
+    button {
+      border-radius: 100%;
+      box-sizing: border-box;
+      width: 5rem;
+      height: 5rem;
+      border: 0;
+      position: relative;
+      margin-right: 2rem;
+      & + button {
+        margin-top: 2rem;
+      }
+      span {
+        position: relative;
+        top: 0;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        border-left: 1px solid #000;
+        border-bottom: 1px solid #000;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      // &:before {
+        
+      // }
+      // &:after {
+      //   position: absolute;
+      //   top: 50%;
+      //   left: 50%;
+      //   content: '';
+      //   width: 16px;
+      //   height: 16px;
+      //   margin: -12px 0 0 -8px;
+      //   border-left: 1px solid #000;
+      //   border-bottom: 1px solid #000;
+      //   -webkit-transform: rotate(-45deg);
+      //   transform: rotate(-45deg);
+      //   box-sizing: border-box;
+      // }
+    }
   }
 
   .section {
@@ -106,21 +166,18 @@ html {
       }
       &-left {
         .work-img-wrapper {
-          flex-direction: row-reverse;
+          flex-direction: column-reverse;
+          @include md {
+            flex-direction: row-reverse;
+          }
         }
       }
       &-right {
         .work-text {
           padding: 6rem;
-        }
-
-        .work-img-wrapper {
-          // flex-direction: row-reverse;
-        }
+        }        
       }
     }
-
-    
 
     & + .section {
       margin-top: 4rem;
@@ -270,6 +327,7 @@ html {
       text-align: center;
       font-family: 'League', sans-serif;
       font-size: 1.6rem;
+      line-height: 1em;
       padding: 2.2rem 0;
       color: #a6a6a6;
     }
@@ -312,10 +370,10 @@ html {
       font-weight: 400;
       max-width: 75vw;
       font-size: 2.4rem;
-      margin-top: 6rem;
+      margin-top: 3rem;
       @include md {
         font-size: 2rem;
-        max-width: 50vw;
+        max-width: 560px;
       }
     }
 

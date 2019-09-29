@@ -14,14 +14,14 @@ export default class ProgressiveImage extends Component {
   }
 
 	render() {
-		const { preview, src, style, className } = this.props;
+		const { preview, src, style, className, alt } = this.props;
     const { isLoaded } = this.state;
-    console.log(style)
     
 		return (
       <div className={`progressive-wrapper ${className}`}>
         <div className={`progressive-preview ${isLoaded ? 'loaded' : 'isloading'}`}>
           <img
+            alt={`${alt} preview`}
             style={style}
             onLoad={this.setLoaded.bind(this)}            
             src={preview}
@@ -31,6 +31,7 @@ export default class ProgressiveImage extends Component {
           <img            
             {...isLoaded && { style: { opacity: 1, ...style }  }}
             src={src}
+            alt={alt}
           />
         </div>  			
       </div>  			

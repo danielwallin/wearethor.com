@@ -11,11 +11,11 @@
   &-preview {    
     z-index: 2;
     img {
-      // filter: blur(50px);
-      transition: 1000ms ease all;
+      filter: blur(40px);
+      transition: opacity 400ms ease 0ms;
     }
     &.loaded {
-      transition: 1000ms ease all;
+      transition: opacity 400ms ease 0ms;
       position: absolute; 
       top: 0;
       width: 100%;
@@ -35,13 +35,13 @@
     }
   }
   &-preview.loaded + &-src {
-    display: block;
+    // display: block;
   }
   &-src {
     z-index: 1;
-    display: none;
+    // display: none;
     img {
-      transition: 1000ms ease opacity;
+      transition: opacity 400ms ease 0ms;
       opacity: 0
     }
   }

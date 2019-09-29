@@ -56,6 +56,13 @@ export default class App extends React.Component {
     }
   }
 
+  renderNavigation() {
+    return <div className={`navigation ${this.state.hideNav ? 'hide' : ''}`}>
+      <button onClick={this.prevWork.bind(this)}>Previous work</button>
+      <button onClick={this.nextWork.bind(this)}>Next work</button>
+    </div>
+  }
+
   renderSections() {
     let workindex = 0;
     return data.work.map((item, index) => {
@@ -179,11 +186,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        <div className={`navigation ${this.state.hideNav ? 'hide' : ''}`}>
-          <button onClick={this.prevWork.bind(this)}>Previous work</button>
-          <button onClick={this.nextWork.bind(this)}>Next work</button>
-        </div>
+      <div className='App'>        
         {this.renderSections()}
       </div>
     );

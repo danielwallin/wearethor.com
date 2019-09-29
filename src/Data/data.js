@@ -20,7 +20,7 @@ export const data = {
       title: '"Joyce"',
       type: 'work',
       text:
-        'Living in Peru we were very inspired by the traditions of the natives. Joyce is a happy native Shipibo girl from the jungle of Peru, she is immersed in the old ancient icaros patterns that are sung by the initiated during ayahuasca ceremonies.',
+        'Living in Peru we were very inspired by the traditions of the natives. Joyce is a happy native Shipibo girl from the jungle of Peru, she is immersed in the old ancient icaros patterns that are sung by the initiated during ayahuasca ceremonies',
       subtitle: 'Mancora, Peru - January 2019',
       img: '5.jpg',
       imgpreview: '5_prev.jpg',
@@ -44,7 +44,7 @@ export const data = {
       imgalt: 'The Joke',
       type: 'work',
       text:
-        'So imagine this... <br /><br /> This cheeky maccaw just told the most hilarious joke to the man and then turns around proudly to us as to say <br /> -"How funny was that?"',
+        'So imagine this... <br /><br /> This cheeky maccaw just told the most hilarious joke to the man and then turns around proudly to us as to say -"How funny was that?"',
       subtitle: 'Mancora, Peru - January 2019',
     },
     {
@@ -105,7 +105,7 @@ export const data = {
       type: 'grid',
       hideNav: true,
       subtitle: 'SOUTH AMERICA, JANUARY - APRIL 2019',
-      grid: ['grid_1/1_1.jpg', 'grid_1/1_2.jpg', 'grid_1/1_3.jpg', 'grid_1/1_4.jpg', 'grid_1/1_5.jpg', 'grid_1/1_5.jpg'],
+      grid: ['grid_1/1_1.jpg', 'grid_1/1_2.jpg', 'grid_1/1_3.jpg', 'grid_1/1_4.jpg', 'grid_1/1_5.jpg', 'grid_1/1_6.jpeg'],
     },
     {
       type: 'grid',
@@ -125,7 +125,7 @@ export const data = {
       title: 'WHAT WE DO',
       text:
         'We paint on anything we can get our hands on, from huge walls to small rocks. We just want to leave something beautiful for people to see and feel. If you want to collaborate or if you want something done by us; contact us.',
-    },
+      },
     {
       type: 'work',
       layout: 'right no-margin',

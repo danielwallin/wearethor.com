@@ -16,9 +16,12 @@ export default class App extends React.Component {
 
   componentDidMount() {
     const documentTitle = document.title;
-    window.onblur = () => { document.title = `We miss you ❤️ | ${documentTitle}`; }
-    window.onfocus = () => { document.title = documentTitle; }
-
+    window.onblur = () => {
+      document.title = `We miss you ❤️ | ${documentTitle}`;
+    };
+    window.onfocus = () => {
+      document.title = documentTitle;
+    };
 
     // const items = document.querySelectorAll('section.work');
     // window.addEventListener(
@@ -44,22 +47,57 @@ export default class App extends React.Component {
     return <div className='work-img-subtitle'>{subtitle}</div>;
   }
 
-  onEnter (obj, isVisible) {
-    console.log(obj, isVisible)
-    const { workindex, isworkitem, hideNav } = obj
-    if (isworkitem && isVisible) {
-      this.setState({ index: workindex, hideNav: this.state.hideNav }, ()=> { console.log(this.state) })
-    }
-    if (isVisible) {
-      this.setState({ index: this.state.index, hideNav: hideNav ? hideNav : false }, ()=> { console.log(this.state) })
-    }
+  onEnter(obj, isVisible) {
+    // const { workindex, isworkitem, hideNav } = obj;
+    // if (isworkitem && isVisible) {
+    //   this.setState({ index: workindex, hideNav: this.state.hideNav }, () => {
+    //     console.log(this.state);
+    //   });
+    // }
+    // if (isVisible) {
+    //   this.setState({ index: this.state.index, hideNav: hideNav ? hideNav : false }, () => {
+    //     console.log(this.state);
+    //   });
+    // }
   }
 
   renderNavigation() {
-    return <div className={`navigation ${this.state.hideNav ? 'hide' : ''}`}>
-      <button onClick={this.prevWork.bind(this)}>Previous work</button>
-      <button onClick={this.nextWork.bind(this)}>Next work</button>
-    </div>
+    return (
+      <div className={`navigation ${this.state.hideNav ? 'hide' : ''}`}>
+        <button onClick={this.prevWork.bind(this)}>Previous work</button>
+        <button onClick={this.nextWork.bind(this)}>Next work</button>
+      </div>
+    );
+  }
+
+  renderTop() {
+    return (
+      <div className='top'>
+        <div className='contact'>
+          <span
+            className='contact-link'
+            onClick={() => {
+              const contact = document.getElementById('contact');
+              console.log(contact);
+              if (contact) {
+                contact.scrollIntoView();
+              }
+            }}
+          >
+            Contact
+          </span>
+        </div>
+        <h1>
+          we are{' '}
+          <span>
+            <img src='img/thor.png' />
+          </span>
+        </h1>
+        <p>
+          A collection of Murals <br /> and art pieces by mr and mrs Thor
+        </p>
+      </div>
+    );
   }
 
   renderSections() {
@@ -68,37 +106,20 @@ export default class App extends React.Component {
       let id;
       const isworkitem = item.type && item.type.indexOf('work') >= 0;
       if (isworkitem) {
-        workindex += 1
-        id = workindex
+        workindex += 1;
+        id = workindex;
       } else {
-        id = null
+        id = null;
       }
 
       return (
         <Waypoint ref={isworkitem && `work-${workindex}`} onEnter={this.onEnter.bind(this, { workindex: workindex, isworkitem: isworkitem, hideNav: item.hideNav })}>
-          <section 
-            className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} 
-            id={id}>
+          <section className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} id={id || item.id}>
             {/* // ref={isworkitem && `work-${workindex}`}> */}
             {item.type == 'img' ? (
               <div className='work-img-wrapper work-img-full'>
                 {item.headline ? (
                   <React.Fragment>
-                    <div className='section-headline'>
-                      <h1>
-                        we are <span>Thor</span>
-                        {/* <span>
-                          <span className='hide'>Thor</span>
-                          <img src='img/thor.png' />
-                        </span> */}
-                      </h1>
-                      <p className='section-subtext'>
-                        A COLLECTION <br />
-                        OF MURALS AND <br />
-                        ART PIECES BY <br />
-                        MR AND MRS THOR
-                      </p>
-                    </div>
                     <div className='section-headline-img' style={{ backgroundImage: `url(/img/${item.img})` }} />
                   </React.Fragment>
                 ) : (
@@ -118,7 +139,11 @@ export default class App extends React.Component {
                             return (
                               <div className='work-link'>
                                 <a href={link.url} target='_blank'>
-                                  {link.icon && <LazyLoad offset={300}><img src={link.icon} /></LazyLoad>}
+                                  {link.icon && (
+                                    <LazyLoad offset={300}>
+                                      <img src={link.icon} />
+                                    </LazyLoad>
+                                  )}
                                 </a>
                               </div>
                             );
@@ -131,29 +156,29 @@ export default class App extends React.Component {
                 {item.grid && (
                   <React.Fragment>
                     <LazyLoad offset={500}>
-                    <div className='work-img-grid'>
-                      {item.grid.map(path => {
-                        return <div style={{ backgroundImage: `url(/img/${path})` }} />;
-                      })}
-                    </div>
-                    {item.subtitle && this.renderSubtitle(item.subtitle)}
+                      <div className='work-img-grid'>
+                        {item.grid.map(path => {
+                          return <div style={{ backgroundImage: `url(/img/${path})` }} />;
+                        })}
+                      </div>
+                      {item.subtitle && this.renderSubtitle(item.subtitle)}
                     </LazyLoad>
                   </React.Fragment>
                 )}
                 {!item.grid && (
                   <div className='work-img-wrapper'>
                     {item.imgtext && <div className='work-text mt-0' dangerouslySetInnerHTML={this.createMarkup(item.imgtext)} />}
-                    {item.img && 
+                    {item.img && (
                       <LazyLoad offset={10}>
-                        <ProgressiveImage 
+                        <ProgressiveImage
                           className={item.imgclass}
-                          style={{ width: `${item.imgsize}`}}
+                          style={{ width: `${item.imgsize}` }}
                           alt={item.imgalt}
                           src={`/img/${item.img}`}
                           preview={`/img/${item.imgpreview}`}
                         />
                       </LazyLoad>
-                    }
+                    )}
                     {item.subtitle && this.renderSubtitle(item.subtitle)}
                   </div>
                 )}
@@ -167,25 +192,26 @@ export default class App extends React.Component {
 
   nextWork() {
     this.setState({ index: this.state.amount >= this.state.index + 1 ? this.state.index + 1 : this.state.index }, () => {
-      const el = document.getElementById(this.state.index)
+      const el = document.getElementById(this.state.index);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
+        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       }
     });
   }
 
   prevWork() {
     this.setState({ index: this.state.index > 1 ? this.state.index - 1 : this.state.index }, () => {
-      const el = document.getElementById(this.state.index)
+      const el = document.getElementById(this.state.index);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' , block: 'start', inline: 'nearest'});
+        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       }
     });
   }
 
   render() {
     return (
-      <div className='App'>        
+      <div className='App'>
+        {this.renderTop()}
         {this.renderSections()}
       </div>
     );

@@ -61,6 +61,9 @@ html {
     .top {
       color: #fff;
       margin: 3rem 0;
+      @include md {
+        margin: 6rem 0;
+      }
       font-size: 1.6rem;
       .contact {
         color: #fff;

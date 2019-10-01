@@ -74,7 +74,7 @@ export const data = {
       title: '"CARTALEYNA"',
       type: 'work',
       text:
-        'We wanted to capture a modern image of Cartagena and picked our favourite waitress, Leyna, from our favourite restaurant in Cartagena, to model for us. All of the colorful birds in Cartagena inspired us to paint these two lovebirds. The pattern is a typical pre-Colombian.',
+        'We wanted to capture a modern image of Cartagena and picked our favourite waitress, Leyna, from our favourite restaurant in Cartagena, to model for us. All of the colorful birds in Cartagena inspired us to paint these two lovebirds. The pattern is typical pre-Colombian.',
       img: '15.jpg',
       imgpreview: '15_prev.jpg',
       imgalt: 'Cartaleyna',

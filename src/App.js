@@ -2,7 +2,6 @@ import React from 'react';
 import LazyLoad from 'react-lazyload';
 import ProgressiveImage from './Components/Progressive';
 import { data } from './Data/data';
-import { Waypoint } from 'react-waypoint';
 import './App.scss';
 
 export default class App extends React.Component {
@@ -22,21 +21,6 @@ export default class App extends React.Component {
     window.onfocus = () => {
       document.title = documentTitle;
     };
-
-    // const items = document.querySelectorAll('section.work');
-    // window.addEventListener(
-    //   'scroll',
-    //   () => {
-    //     items.forEach(el => {
-    //       const rect = el.getBoundingClientRect();
-    //       if (rect.top < 0) {
-    //         this.setState({ index: Number(el.getAttribute('id')) });
-    //         console.log('setting state index to ', el.getAttribute('id'));
-    //       }
-    //     });
-    //   },
-    //   true,
-    // );
   }
 
   createMarkup(data) {
@@ -45,20 +29,6 @@ export default class App extends React.Component {
 
   renderSubtitle(subtitle) {
     return <div className='work-img-subtitle'>{subtitle}</div>;
-  }
-
-  onEnter(obj, isVisible) {
-    // const { workindex, isworkitem, hideNav } = obj;
-    // if (isworkitem && isVisible) {
-    //   this.setState({ index: workindex, hideNav: this.state.hideNav }, () => {
-    //     console.log(this.state);
-    //   });
-    // }
-    // if (isVisible) {
-    //   this.setState({ index: this.state.index, hideNav: hideNav ? hideNav : false }, () => {
-    //     console.log(this.state);
-    //   });
-    // }
   }
 
   renderNavigation() {
@@ -78,7 +48,6 @@ export default class App extends React.Component {
             className='contact-link'
             onClick={() => {
               const contact = document.getElementById('contact');
-              console.log(contact);
               if (contact) {
                 contact.scrollIntoView();
               }
@@ -113,98 +82,77 @@ export default class App extends React.Component {
       }
 
       return (
-        <Waypoint ref={isworkitem && `work-${workindex}`} onEnter={this.onEnter.bind(this, { workindex: workindex, isworkitem: isworkitem, hideNav: item.hideNav })}>
-          <section className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} id={id || item.id}>
-            {/* // ref={isworkitem && `work-${workindex}`}> */}
-            {item.type == 'img' ? (
-              <div className='work-img-wrapper work-img-full'>
-                {item.headline ? (
-                  <React.Fragment>
-                    <div className='section-headline-img' style={{ backgroundImage: `url(/img/${item.img})` }} />
-                  </React.Fragment>
-                ) : (
-                  <img src={`/img/${item.img}`} />
-                )}
-              </div>
-            ) : (
-              <React.Fragment>
-                {item.type !== 'grid' && item.title && (
-                  <div className='work-wrapper'>
-                    <div className='work-content'>
-                      <h2 className='work-title' dangerouslySetInnerHTML={this.createMarkup(item.title)}></h2>
-                      <div className='work-text' dangerouslySetInnerHTML={this.createMarkup(item.text)} />
-                      {item.links && (
-                        <div className='work-links'>
-                          {item.links.map(link => {
-                            return (
-                              <div className='work-link'>
-                                <a href={link.url} target='_blank'>
-                                  {link.icon && (
-                                    <LazyLoad offset={300}>
-                                      <img src={link.icon} />
-                                    </LazyLoad>
-                                  )}
-                                </a>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-                {item.grid && (
-                  <React.Fragment>
-                    <LazyLoad offset={500}>
-                      <div className='work-img-grid'>
-                        {item.grid.map(path => {
-                          return <div style={{ backgroundImage: `url(/img/${path})` }} />;
+        <section ref={isworkitem && `work-${workindex}`} className={`section ${item.layout ? `layout layout-${item.layout}` : ''} ${item.type || 'other'}`} id={id || item.id}>
+          {item.type == 'img' ? (
+            <div className='work-img-wrapper work-img-full'>
+              {item.headline ? (
+                <React.Fragment>
+                  <div className='section-headline-img' style={{ backgroundImage: `url(/img/${item.img})` }} />
+                </React.Fragment>
+              ) : (
+                <img src={`/img/${item.img}`} />
+              )}
+            </div>
+          ) : (
+            <React.Fragment>
+              {item.type !== 'grid' && item.title && (
+                <div className='work-wrapper'>
+                  <div className='work-content'>
+                    <h2 className='work-title' dangerouslySetInnerHTML={this.createMarkup(item.title)}></h2>
+                    <div className='work-text' dangerouslySetInnerHTML={this.createMarkup(item.text)} />
+                    {item.links && (
+                      <div className='work-links'>
+                        {item.links.map(link => {
+                          return (
+                            <div className='work-link'>
+                              <a href={link.url} target='_blank'>
+                                {link.icon && (
+                                  <LazyLoad offset={300}>
+                                    <img src={link.icon} />
+                                  </LazyLoad>
+                                )}
+                              </a>
+                            </div>
+                          );
                         })}
                       </div>
-                      {item.subtitle && this.renderSubtitle(item.subtitle)}
-                    </LazyLoad>
-                  </React.Fragment>
-                )}
-                {!item.grid && (
-                  <div className='work-img-wrapper'>
-                    {item.imgtext && <div className='work-text mt-0' dangerouslySetInnerHTML={this.createMarkup(item.imgtext)} />}
-                    {item.img && (
-                      <LazyLoad offset={10}>
-                        <ProgressiveImage
-                          className={item.imgclass}
-                          style={{ width: `${item.imgsize}` }}
-                          alt={item.imgalt}
-                          src={`/img/${item.img}`}
-                          preview={`/img/${item.imgpreview}`}
-                        />
-                      </LazyLoad>
                     )}
-                    {item.subtitle && this.renderSubtitle(item.subtitle)}
                   </div>
-                )}
-              </React.Fragment>
-            )}
-          </section>
-        </Waypoint>
+                </div>
+              )}
+              {item.grid && (
+                <React.Fragment>
+                  <LazyLoad offset={1000}>
+                    <div className='work-img-grid'>
+                      {item.grid.map(path => {
+                        return <div style={{ backgroundImage: `url(/img/${path})` }} />;
+                      })}
+                    </div>
+                    {item.subtitle && this.renderSubtitle(item.subtitle)}
+                  </LazyLoad>
+                </React.Fragment>
+              )}
+              {!item.grid && (
+                <div className='work-img-wrapper'>
+                  {item.imgtext && <div className='work-text mt-0' dangerouslySetInnerHTML={this.createMarkup(item.imgtext)} />}
+                  {item.img && (
+                    <LazyLoad offset={10}>
+                      <ProgressiveImage
+                        className={item.imgclass}
+                        style={{ width: `${item.imgsize}` }}
+                        alt={item.imgalt}
+                        src={`/img/${item.img}`}
+                        preview={`/img/${item.imgpreview}`}
+                      />
+                    </LazyLoad>
+                  )}
+                  {item.subtitle && this.renderSubtitle(item.subtitle)}
+                </div>
+              )}
+            </React.Fragment>
+          )}
+        </section>
       );
-    });
-  }
-
-  nextWork() {
-    this.setState({ index: this.state.amount >= this.state.index + 1 ? this.state.index + 1 : this.state.index }, () => {
-      const el = document.getElementById(this.state.index);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      }
-    });
-  }
-
-  prevWork() {
-    this.setState({ index: this.state.index > 1 ? this.state.index - 1 : this.state.index }, () => {
-      const el = document.getElementById(this.state.index);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-      }
     });
   }
 

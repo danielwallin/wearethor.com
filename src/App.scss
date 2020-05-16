@@ -38,367 +38,368 @@ body {
 }
 
 html {
-    font-size: 7px;
-    @include md {
-      font-size: 10px;
-    }
+  font-size: 7px;
+  @include md {
+    font-size: 10px;
   }
+}
 
-  img {
-    display: block;
-    width: 100%;
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #646464;
+}
+
+header {
+  position: fixed;
+}
+
+.top {
+  color: #fff;
+  margin: 3rem 0;
+  @include md {
+    margin: 6rem 0;
   }
-
-  a {
-    text-decoration: none; 
-    color: #646464;
-  }
-
-  header {
-    position: fixed;
-  }
-
-    .top {
-      color: #fff;
-      margin: 3rem 0;
-      @include md {
-        margin: 6rem 0;
-      }
-      font-size: 1.6rem;
-      .contact {
-        color: #fff;
-        font-family: 'Aheavy', sans-serif;
-        display: flex;
-        justify-content: flex-end;
-        margin-right: 3rem;
-        &-link {
-          display: inline;
-          cursor: pointer;
-        }
-      }
-      h1 {
-        font-size: 3rem;
-        font-family: 'Athin', sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1em;
-        color: #adadad;
-        @include md {
-          font-size: 4rem;
-        }
-        img {
-          width: 18rem;
-          @include md {
-            width: 25rem;
-          }
-        }
-      }
-      p {
-        text-transform: uppercase;
-        font-family: 'Aheavy', sans-serif;
-      }
-    }
-
-  .inset {
-    position: relative;
-    z-index: 10;
-    @include md {
-      margin-left: -3rem;
-    }
-  }
-
-  .mt-0 {
-    margin-top: 0!important;
-  }
-
-  .m-6 {
-    margin: 6rem!important;
-    @include sm {
-      margin-top: 0!important; 
-    }
-    @include md {
-      margin-top: 6rem!important; 
-    }   
-  }
-
-  .mtb-3 {
-    @include md {
-      margin: 3rem 0!important;
-    }
-  }
-
-  .hide {
-    display: none;
-  }
-
-  .App {
-    text-align: center;
-    font-family: sans-serif;
-  }
-
-  .navigation {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    width: 50px;
-    height: 100vh;
+  font-size: 1.6rem;
+  .contact {
+    color: #fff;
+    font-family: 'Aheavy', sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-    right: 0;
-    opacity: 1;
-    transition: .3s ease;
-    &.hide {
-      opacity: 0; 
+    justify-content: flex-end;
+    margin-right: 3rem;
+    &-link {
+      display: inline;
+      cursor: pointer;
     }
-    button {
-      border-radius: 100%;
-      box-sizing: border-box;
-      width: 5rem;
-      height: 5rem;
-      border: 0;
+  }
+  h1 {
+    font-size: 3rem;
+    font-family: 'Athin', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1em;
+    color: #adadad;
+    @include md {
+      font-size: 4rem;
+    }
+    img {
+      width: 18rem;
+      @include md {
+        width: 25rem;
+      }
+    }
+  }
+  p {
+    text-transform: uppercase;
+    font-family: 'Aheavy', sans-serif;
+  }
+}
+
+.inset {
+  position: relative;
+  z-index: 10;
+  @include md {
+    margin-left: -3rem;
+  }
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.m-6 {
+  margin: 6rem !important;
+  @include sm {
+    margin-top: 0 !important;
+  }
+  @include md {
+    margin-top: 6rem !important;
+  }
+}
+
+.mtb-3 {
+  @include md {
+    margin: 3rem 0 !important;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.App {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  right: 0;
+  opacity: 1;
+  transition: 0.3s ease;
+  &.hide {
+    opacity: 0;
+  }
+  button {
+    border-radius: 100%;
+    box-sizing: border-box;
+    width: 5rem;
+    height: 5rem;
+    border: 0;
+    position: relative;
+    margin-right: 2rem;
+    & + button {
+      margin-top: 2rem;
+    }
+    span {
       position: relative;
-      margin-right: 2rem;
-      & + button {
-        margin-top: 2rem;
-      }
-      span {
-        position: relative;
-        top: 0;
-        left: 50%;
-        width: 24px;
-        height: 24px;
-        margin-left: -12px;
-        border-left: 1px solid #000;
-        border-bottom: 1px solid #000;
-        -webkit-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    margin: 0 auto;
-    background: #fff;
-    position: relative;
-    overflow: hidden;
-    
-    &.layout {
-      .work-img-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: wrap;
-        @include md {
-          flex-flow: row;
-        }
-      }
-      &-left {
-        .work-img-wrapper {
-          flex-direction: column-reverse;
-          @include md {
-            flex-direction: row-reverse;
-          }
-        }
-      }
-      &-right {
-        .work-text {
-          padding: 6rem;
-        }        
-      }
-    }
-
-    & + .section {
-      margin-top: 4rem;
-    }
-
-    &.work.mix {
-      .work-img-grid {
-        padding-top: 0;
-        top: -1.5rem;
-      }
-      .work-img-subtitle {
-        margin-top: 0;
-      }
-    }
-
-    &.work > *, &.other > * {
-      margin-top: 10rem;
-      @include md {
-        margin-top: 22rem;
-      }
-    }
-
-    &.no-margin > * {
-      margin-top: 0;
-    }
-
-    &-subtext {
-      position: absolute;
-      color: white;
-      bottom: 0;
-      right: 2rem;
-      text-align: left;
-      font-family: 'League', sans-serif;
-      text-transform: uppercase;
-      font-size: 2rem;
-      line-height: 1.5em;
-      @include md {
-        right: 10vw;
-      }
-    }
-
-    &-headline {
-      position: absolute;
-      z-index: 10;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      font-size: 5rem;
-      color: #fff;
       top: 0;
-      font-family: 'Athin', sans-serif;
-      h1 {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        margin-top: -30vw;
-        img {
-          width: 45rem;
-        }
-      }
-      &-img {
-        background-size: cover;
-        height: 40vh;
-        @include md {
-          height: 100vh;
-        }
-        background-position: center center;
-      }
-      @include md {
-        font-size: 8rem;
-      }
-      span {
-        text-transform: uppercase;
-        font-family: 'Aheavy', sans-serif;
-        margin-left: 2rem;
-        @include md {
-          margin-left: 5rem;
-        }
-      }
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      margin-left: -12px;
+      border-left: 1px solid #000;
+      border-bottom: 1px solid #000;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
     }
   }
+}
 
-  .work, .other {
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
 
-    &-links {
+  &.layout {
+    .work-img-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 1.5rem;
-
-      .work-link {
-        width: 3rem;
-        & + * {
-          margin-left: 2rem;
-        }
+      flex-flow: wrap;
+      @include md {
+        flex-flow: row;
       }
     }
-
-    &-img-grid {
-      padding: 3rem;
-      padding-bottom: 0;
-      position: relative;      
-      margin: -1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      > * {
-        position: relative;
-        flex-basis: calc(50% - 3rem);
-        margin: 1.5rem;
+    &-left {
+      .work-img-wrapper {
+        margin-top: 10rem;
+        //flex-direction: column-reverse;
         @include md {
-          flex-basis: calc(33.333% - 3rem);
-        }
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        &:after {
-          content: '';
-          display: block;
-          padding-top: 100%;
+          flex-direction: row-reverse;
         }
       }
     }
-
-    &-img-wrapper {
-      width: 100%;
-      img {
-        margin: 0 auto;
+    &-right {
+      .work-text {
+        padding: 6rem;
       }
     }
+  }
 
-    &-img-subtitle {
-      display: block;
-      text-transform: uppercase;
-      text-align: center;
-      font-family: 'League', sans-serif;
-      font-size: 1.6rem;
-      line-height: 1.4em;
-      padding: 2.2rem 0;
-      color: #a6a6a6;
+  & + .section {
+    margin-top: 4rem;
+  }
+
+  &.work.mix {
+    .work-img-grid {
+      padding-top: 0;
+      top: -1.5rem;
     }
-
-    &-img-full {
+    .work-img-subtitle {
       margin-top: 0;
     }
+  }
 
+  &.work > *,
+  &.other > * {
+    margin-top: 10rem;
+    @include md {
+      margin-top: 22rem;
+    }
+  }
+
+  &.no-margin > * {
+    margin-top: 0;
+  }
+
+  &-subtext {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    right: 2rem;
+    text-align: left;
+    font-family: 'League', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 1.5em;
+    @include md {
+      right: 10vw;
+    }
+  }
+
+  &-headline {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    font-size: 5rem;
+    color: #fff;
+    top: 0;
+    font-family: 'Athin', sans-serif;
+    h1 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      margin-top: -30vw;
+      img {
+        width: 45rem;
+      }
+    }
     &-img {
       background-size: cover;
+      height: 40vh;
+      @include md {
+        height: 100vh;
+      }
       background-position: center center;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      margin: 0 auto;
     }
-
-    &-title {
-      font-family: 'League', sans-serif;
-      font-weight: 700;
-      font-size: 5rem;
-      margin-bottom: 1em;
-      line-height: 1em;
-      margin-top: 0;
+    @include md {
+      font-size: 8rem;
+    }
+    span {
       text-transform: uppercase;
-      color: #404040;
-      max-width: 75vw;
-      margin: 0 auto;
+      font-family: 'Aheavy', sans-serif;
+      margin-left: 2rem;
       @include md {
-        max-width: 100vw;
-        font-size: 6rem;
+        margin-left: 5rem;
       }
     }
-
-    &-text {
-      font-family: 'Cooper', sans-serif;
-      margin: 0 auto;
-      line-height: 1.5em;
-      color: #646464;
-      font-weight: 400;
-      max-width: 75vw;
-      font-size: 2.4rem;
-      margin-top: 3rem;
-      @include md {
-        font-size: 2rem;
-        max-width: 560px;
-      }
-    }
-
   }
+}
+
+.work,
+.other {
+  &-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .work-link {
+      width: 3rem;
+      & + * {
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  &-img-grid {
+    padding: 3rem;
+    padding-bottom: 0;
+    position: relative;
+    margin: -1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    > * {
+      position: relative;
+      flex-basis: calc(50% - 3rem);
+      margin: 1.5rem;
+      @include md {
+        flex-basis: calc(33.333% - 3rem);
+      }
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &:after {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+    }
+  }
+
+  &-img-wrapper {
+    width: 100%;
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  &-img-subtitle {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'League', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.4em;
+    padding: 2.2rem 0;
+    color: #a6a6a6;
+  }
+
+  &-img-full {
+    margin-top: 0;
+  }
+
+  &-img {
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+
+  &-title {
+    font-family: 'League', sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    margin-bottom: 1em;
+    line-height: 1em;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #404040;
+    max-width: 75vw;
+    margin: 0 auto;
+    @include md {
+      max-width: 100vw;
+      font-size: 6rem;
+    }
+  }
+
+  &-text {
+    font-family: 'Cooper', sans-serif;
+    margin: 0 auto;
+    line-height: 1.5em;
+    color: #646464;
+    font-weight: 400;
+    max-width: 75vw;
+    font-size: 2.4rem;
+    margin-top: 3rem;
+    @include md {
+      font-size: 2rem;
+      max-width: 560px;
+    }
+  }
+}

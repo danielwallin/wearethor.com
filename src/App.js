@@ -16,7 +16,7 @@ export default class App extends React.Component {
   componentDidMount() {
     const documentTitle = document.title;
     window.onblur = () => {
-      document.title = `We miss you ❤️ | ${documentTitle}`;
+      document.title = `we paint the world a happier place! | ${documentTitle}`;
     };
     window.onfocus = () => {
       document.title = documentTitle;
@@ -59,7 +59,7 @@ export default class App extends React.Component {
         <h1>
           we are{' '}
           <span>
-            <img src='img/thor.png' />
+            <img src='img/thor.png' alt='Thor logo' />
           </span>
         </h1>
         <p>

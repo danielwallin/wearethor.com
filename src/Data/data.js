@@ -48,7 +48,7 @@ export const data = {
       imgpreview: '9_prev.jpg',
       imgalt: 'The Joke',
       type: 'work',
-      text: 'So imagine this... <br /><br /> His cheeky macaw just told the most hilarious joke to the man,<br /> turning around proudly to us, as if to say<br/> "How funny was that, huh?"',
+      text: 'So imagine this... <br /><br /> His cheeky macaw just told the most hilarious joke to the man,<br /> turning around proudly to us, as if to say<br/><br/> "How funny was that, huh?"',
       subtitle: 'Mancora, Peru - January 2019',
     },
     {

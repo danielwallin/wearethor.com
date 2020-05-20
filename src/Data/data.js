@@ -106,7 +106,7 @@ export const data = {
       layout: 'right no-margin',
       imgsize: '50vw',
       imgtext:
-        '<h2 class="work-title">HOMEBOYS</h2><br />Friends come in all shapes and sizes;<br /> you are never alone.<br /><br /><div class="work-img-subtitle">80x120 cm, acrylics on canvas.</div>',
+        '<h2 class="work-title">"HOMEBOYS"</h2><br />Friends come in all shapes and sizes;<br /> you are never alone.<br /><br /><div class="work-img-subtitle">80x120 cm, acrylics on canvas.</div>',
       imgclass: 'm-6',
       img: 'Homeboys small.jpg',
       imgpreview: 'Homeboys small_prev.jpg',
@@ -146,7 +146,7 @@ export const data = {
     {
       layout: 'left no-margin',
       imgclass: 'm-6',
-      imgtext: '<h2 class="work-title">MISS PIGGY</h2><br />When in doubt, pig out! <br /><br /><div class="work-img-subtitle">100x140 cm, acrylics on canvas.</div>',
+      imgtext: '<h2 class="work-title">"MISS PIGGY"</h2><br />When in doubt, pig out! <br /><br /><div class="work-img-subtitle">100x140 cm, acrylics on canvas.</div>',
       type: 'work',
       imgsize: '50vw',
       img: 'Miss piggy small.jpg',

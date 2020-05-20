@@ -211,6 +211,10 @@ header {
     &-right {
       .work-text {
         padding: 6rem;
+        padding-bottom: 0;
+        @include md {
+          padding: 6rem;
+        }
       }
     }
   }
